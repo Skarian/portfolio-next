@@ -23,7 +23,7 @@ const Animate = ({ children, repeat, button }) => {
         type: 'spring',
         stiffness: 200,
         damping: 20,
-        duration: 6,
+        duration: 1,
         // ease: "easeout",
       }}
       whileTap={{

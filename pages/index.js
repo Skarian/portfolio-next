@@ -5,10 +5,11 @@ import SwipeToUnlock from '../components/swipeToUnlock';
 import useWindowSize from '../utils/useWindowSize';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 const wireframes = false;
 
-const Background = styled.div`
+const Background = styled(motion.div)`
   position: fixed;
   width: 100%;
   height: 100%;
@@ -170,10 +171,12 @@ const Heading = styled.h1`
 `;
 
 const Home = () => {
+  const router = useRouter();
   const windowSize = useWindowSize();
   console.log(`The current window size is: ${windowSize}`);
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      {/* // <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate"> */}
       <Background>
         <Hero>
           <ProfileBlock>
@@ -184,6 +187,9 @@ const Home = () => {
                   alt="A very handsome brown man"
                   width={350}
                   height={350}
+                  onClick={() => {
+                    router.push('/test/');
+                  }}
                 />
               </Profile>
             </Animate>

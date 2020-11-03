@@ -4,7 +4,7 @@ import AboutCard from '../components/aboutCard';
 import BackButton from '../components/backButton';
 import { motion } from 'framer-motion';
 
-const Background = styled.div`
+const Background = styled(motion.div)`
   width: 100%;
   min-height: 100vh;
   background: #eef1ef;
@@ -41,6 +41,7 @@ flex-direction: column;
 const Directory = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      {/* // <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate"> */}
       <Background>
         <BackButton route="/" />
         <FirstRow>

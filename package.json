@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "babel-plugin-inline-react-svg": "^1.1.2",
-    "framer-motion": "^1.11.1",
+    "framer-motion": "2.7.6",
     "next": "10.0.0",
     "notion-client": "^2.5.1",
     "notion-utils": "^2.5.1",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-intersection-observer": "^8.29.1",
+    "react-intersection-observer": "^8.30.1",
     "react-notion-x": "^2.5.1",
     "styled-components": "^5.2.1",
     "styled-reset": "^4.3.0"

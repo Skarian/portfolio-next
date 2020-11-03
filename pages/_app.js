@@ -18,10 +18,10 @@ function handleExitComplete() {
 
 export default function MyApp({ Component, pageProps, router }) {
   return (
-    <Layout>
-      <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+    <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+      <Layout>
         <Component {...pageProps} key={router.route} />
-      </AnimatePresence>
-    </Layout>
+      </Layout>
+    </AnimatePresence>
   );
 }

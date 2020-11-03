@@ -134,17 +134,15 @@ const SwipeToUnlock = () => {
         drag="x"
         dragConstraints={swipeConstraintsRef}
         onDrag={(event, info) => {
-          const scopedDragProgress = info.point.x;
+          const scopedDragProgress = info.offset.x;
           const scopedSwipeAreaSize =
             swipeConstraintsRef.current.clientWidth - buttonConstraintsRef.current.clientWidth;
-          console.log(`drag progress ${info.point.x} `);
           setDragProgress(scopedDragProgress);
           if (dragProgress > 1) {
             setSlideToUnlockOpacity(1 - dragProgress / swipeAreaSize - 0.4);
           }
 
           if (scopedDragProgress > scopedSwipeAreaSize * 0.9) {
-            //navigate("/directory/")
             router.push('/directory/');
             console.log('Criteria achieved');
           }
