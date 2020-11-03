@@ -173,9 +173,9 @@ const Home = () => {
   const windowSize = useWindowSize();
   console.log(`The current window size is: ${windowSize}`);
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      {/* // <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate"> */}
-      <Background>
+    // <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
+      <Background initial={{ opacity: 0 }} animte={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <Hero>
           <ProfileBlock>
             <Animate>

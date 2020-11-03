@@ -40,9 +40,9 @@ flex-direction: column;
 
 const Directory = () => {
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      {/* // <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate"> */}
-      <Background>
+    // <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
+      <Background initial={{ opacity: 0 }} animte={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <BackButton route="/" />
         <FirstRow>
           <AboutCard
