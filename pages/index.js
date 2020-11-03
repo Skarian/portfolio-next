@@ -5,7 +5,6 @@ import SwipeToUnlock from '../components/swipeToUnlock';
 import useWindowSize from '../utils/useWindowSize';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
 
 const wireframes = false;
 
@@ -171,7 +170,6 @@ const Heading = styled.h1`
 `;
 
 const Home = () => {
-  const router = useRouter();
   const windowSize = useWindowSize();
   console.log(`The current window size is: ${windowSize}`);
   return (
@@ -187,9 +185,6 @@ const Home = () => {
                   alt="A very handsome brown man"
                   width={350}
                   height={350}
-                  onClick={() => {
-                    router.push('/test/');
-                  }}
                 />
               </Profile>
             </Animate>
