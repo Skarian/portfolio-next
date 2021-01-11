@@ -1,8 +1,7 @@
 import React from 'react';
 import { GlobalStyle } from '../styles/global';
-import { motion } from 'framer-motion';
 //import Helmet from "react-helmet"
-import BackButton from '../components/backButton';
+import Nav from '../components/nav';
 
 const Layout = ({ children }) => {
   return (
@@ -15,9 +14,9 @@ const Layout = ({ children }) => {
         ]}
       /> */}
       <GlobalStyle />
+      <Nav />
       <main>
-        <BackButton />
-        {children}
+        <div className="container mx-auto max-w-5xl p-5">{children}</div>
       </main>
     </>
   );
