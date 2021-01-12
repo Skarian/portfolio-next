@@ -47,7 +47,7 @@ const Directory = () => {
         <FirstRow>
           <AboutCard
             heading="About Me"
-            description="A list of my skills, knowledge, and capabilities"
+            description="A list of my skills, knowledge, and abilities"
             bgColor="#6ccff6"
             route="/about/"
             type="about"
