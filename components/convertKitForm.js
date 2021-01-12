@@ -9,6 +9,7 @@ const ConvertKitForm = () => {
   //FORM_URL should be the same as the form action url pointed out above
   const FORM_URL = `https://app.convertkit.com/forms/1903147/subscriptions`;
 
+  //this is a placeholder text
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
