@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <Nav />
       <main>
-        <div className="container mx-auto max-w-5xl p-5">{children}</div>
+        <div className="container mx-auto max-w-5xl p-10">{children}</div>
       </main>
     </>
   );
