@@ -1,90 +1,65 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
-import Post from '../components/post';
+import { getPageTitle, getAllPagesInSpace } from 'notion-utils';
+import { NotionAPI } from 'notion-client';
+import { NotionRenderer } from 'react-notion-x';
 import { motion } from 'framer-motion';
+import { getLinkPreview } from 'link-preview-js';
 
-const client = require('contentful').createClient({
-  // space: process.env.NEXT_CONTENTFUL_SPACE_ID,
-  // accessToken: process.env.NEXT_CONTENTFUL_ACCESS_TOKEN,
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-});
+const notion = new NotionAPI();
 
-export async function getStaticProps() {
-  let data = await client.getEntries({
-    content_type: 'post',
-  });
+export const getStaticProps = async (context) => {
+  // Take array of URLs and return rich content preview using link-preview-js
+  const getLinkPreviews = (myArray) => {
+    const promises = myArray.map(async (myValue) => {
+      try {
+        return await getLinkPreview(myValue);
+      } catch (error) {}
+    });
+    return Promise.all(promises);
+  };
+
+  // Retrieve URLS from Notion table, then call getURLContent
+  const getLinks = async () => {
+    let urls = [];
+    const pageId = '74ac9e02e351472bae18997edd36328b';
+    const recordMap = await notion.getPage(pageId);
+    const blocks = recordMap.block;
+    Object.keys(blocks).forEach((key) => {
+      if (blocks[key].value && blocks[key].value.type === 'page') {
+        urls.push(blocks[key].value.properties._pmJ[0][0]);
+      }
+    });
+    const urlContent = await getLinkPreviews(urls);
+    return urlContent;
+  };
+
+  const finalContent = await getLinks();
+
+  console.debug(finalContent);
   return {
     props: {
-      posts: data.items,
+      previewContentArray: JSON.parse(JSON.stringify(finalContent)),
     },
+    revalidate: 10,
   };
-}
-
-const Playground = ({ posts }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 1 }}
-      className="test"
-    >
-      {/* <div className="mt-6">
-        <div className="max-w-4xl px-10 py-6 bg-white rounded-lg shadow-md">
-          <div className="flex justify-between items-center">
-            <span className="font-light text-gray-600">Jun 1, 2020</span>
-            <a
-              href="#"
-              className="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500"
-            >
-              Laravel
-            </a>
-          </div>
-          <div className="mt-2">
-            <a href="#" className="text-2xl text-gray-700 font-bold hover:underline">
-              Build Your New Idea with Laravel Freamwork.
-            </a>
-            <p className="mt-2 text-gray-600">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita dicta totam
-              aspernatur doloremque. Excepturi iste iusto eos enim reprehenderit nisi, accusamus
-              delectus nihil quis facere in modi ratione libero!
-            </p>
-          </div>
-          <div className="flex justify-between items-center mt-4">
-            <a href="#" className="text-blue-500 hover:underline">
-              Read more
-            </a>
-          </div>
-        </div>
-      </div> */}
-      <motion.div
-        className="max-w-md mx-auto bg-white rounded-xl ring-1 ring-gray-200 shadow-sm overflow-hidden md:max-w-2xl cursor-pointer"
-        whileHover={{ scale: 1.05 }}
-      >
-        <div className="md:flex">
-          <div className="md:flex-shrink-0">
-            <img
-              className="h-48 w-full object-cover md:w-48"
-              src="https://via.placeholder.com/1500"
-              alt="Man looking at item at a store"
-            />
-          </div>
-          <div className="p-8">
-            <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-              Case study
-            </div>
-            <div className="block mt-1 text-lg leading-tight font-medium">
-              Finding customers for your new business
-            </div>
-            <p className="mt-2 text-gray-500">
-              Getting a new business off the ground is a lot of hard work. Here are five ideas you
-              can use to find your first customers.
-            </p>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
 };
 
-export default Playground;
+export default function Playground({ previewContentArray }) {
+  console.log(previewContentArray);
+  return (
+    <>
+      {/* <Head>
+        <meta name="description" content="React Notion X demo renderer." />
+        <title>{title}</title>
+      </Head> */}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        {/* <NotionRenderer recordMap={recordMap} fullPage={false} darkMode={false} /> */}
+
+        <div>{/* {urls.map((url) => {
+            return <div>{url}</div>;
+          })} */}</div>
+      </motion.div>
+    </>
+  );
+}

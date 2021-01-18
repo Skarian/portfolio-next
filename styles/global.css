@@ -2,12 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer components {
-  .typo {
-    @apply prose prose-sm sm:prose lg:prose-lg xl:prose-xl;
-  }
   .test {
     border: 1px solid red;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .prose p img {
+    @apply mx-auto;
+    @apply block;
+    @apply rounded-lg;
   }
 }
