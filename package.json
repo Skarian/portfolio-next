@@ -30,7 +30,8 @@
     "react-markdown": "^5.0.3",
     "react-notion-x": "^2.5.1",
     "remark-gfm": "^1.0.0",
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "^2.0.2",
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {}
 }
