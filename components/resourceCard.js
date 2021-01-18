@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-const ArticleCard = ({ title, description, link, image }) => {
+const ResourceCard = ({ title, description, link, image }) => {
   function getHostName(url) {
     var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
     if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
@@ -43,9 +43,9 @@ const ArticleCard = ({ title, description, link, image }) => {
   );
 };
 
-export default ArticleCard;
+export default ResourceCard;
 
-ArticleCard.propTypes = {
+ResourceCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,

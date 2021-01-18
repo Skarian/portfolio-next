@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { fetchContent } from '../../utils/contentful';
-import Head from 'next/head';
 import moment from 'moment';
 import ReactMarkDown from 'react-markdown';
 import gfm from 'remark-gfm';
+import BlogSeo from '../../components/blogSeo';
 
 const Blog = ({ blogPost }) => {
-  const { category, description, title, date, alt, body, image } = blogPost;
+  const { category, description, title, date, alt, body, image, slug } = blogPost;
   function calcReadingTime(post) {
     const WORDS_PER_MINUTE = 200;
     let result = {};
@@ -22,10 +22,14 @@ const Blog = ({ blogPost }) => {
   const readingTime = calcReadingTime(body).readingTime;
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <BlogSeo
+        url={`https://neilskaria.com/blog/${slug}`}
+        title={title}
+        description={description}
+        image={image}
+        alt={alt}
+        date={date}
+      />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -78,6 +82,7 @@ export async function getStaticProps({ params }) {
           image {
             url
           }
+          slug
         }
       }
     }

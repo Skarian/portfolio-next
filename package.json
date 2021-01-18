@@ -19,6 +19,7 @@
     "moment": "^2.29.1",
     "next": "^10.0.4",
     "next-optimized-images": "^2.6.2",
+    "next-seo": "^4.17.0",
     "notion-client": "^2.5.2",
     "postcss": "^8.2.1",
     "prop-types": "^15.7.2",

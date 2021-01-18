@@ -1,20 +1,20 @@
 import { motion } from 'framer-motion';
 import { fetchContent } from '../utils/contentful';
-import Head from 'next/head';
 import Hero from '../components/hero';
 import BlogPostCard from '../components/blogPostCard';
-import ArticleCard from '../components/articleCard';
+import ResourceCard from '../components/resourceCard';
 import Link from 'next/link';
 import { getLinkPreview } from 'link-preview-js';
 import { NotionAPI } from 'notion-client';
+import { NextSeo } from 'next-seo';
 
-const Home = ({ headTitle, heroData, articles, blogPosts }) => {
+const Home = ({ heroData, resources, blogPosts }) => {
   return (
     <>
-      <Head>
-        <title>{headTitle}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <NextSeo
+        title="Home – Neil Skaria"
+        description="Technology, strategy, finance, and everything else"
+      />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -25,7 +25,7 @@ const Home = ({ headTitle, heroData, articles, blogPosts }) => {
 
         <div className="space-y-10 ">
           <div className="text-center md:text-left">
-            <div className="text-2xl font-bold mb-3">🧐 Recent Research</div>
+            <div className="text-2xl font-bold mb-3">🧐 Recent Blog Posts</div>
             <div className=" text-sm md:text-base text-gray-500">
               A collection of my thoughts on a variety of topics
             </div>
@@ -46,7 +46,7 @@ const Home = ({ headTitle, heroData, articles, blogPosts }) => {
             );
           })}
 
-          <Link href="/api/hello">
+          <Link href="/blog">
             <div className="inline-flex cursor-pointer text-white bg-green-500 border-0 py-1.5 px-6 focus:outline-none hover:bg-green-600 rounded-lg text-base">
               Read more
             </div>
@@ -54,25 +54,25 @@ const Home = ({ headTitle, heroData, articles, blogPosts }) => {
         </div>
         <div className="space-y-10 ">
           <div className="text-center md:text-left">
-            <div className="text-2xl font-bold mb-3">🧠 Saved Articles</div>
+            <div className="text-2xl font-bold mb-3">🧠 Saved Resources</div>
             <div className=" text-sm md:text-base text-gray-500">
-              A list of articles and blog posts that I find interesting
+              A list of articles and blog posts that I reference back to
             </div>
           </div>
-          {articles.map((article) => {
-            if (article.title && article.description && article.images[0]) {
+          {resources.map((resource) => {
+            if (resource.title && resource.description && resource.images[0]) {
               return (
-                <ArticleCard
-                  key={article.url}
-                  title={article.title}
-                  description={article.description}
-                  link={article.url}
-                  image={article.images[0]}
+                <ResourceCard
+                  key={resource.url}
+                  title={resource.title}
+                  description={resource.description}
+                  link={resource.url}
+                  image={resource.images[0]}
                 />
               );
             }
           })}
-          <Link href="/api/hello">
+          <Link href="/resources">
             <div className="inline-flex cursor-pointer text-white bg-green-500 border-0 py-1.5 px-6 focus:outline-none hover:bg-green-600 rounded-lg text-base">
               Read more
             </div>
@@ -90,7 +90,6 @@ export async function getStaticProps() {
     `
     {
       homePage (id: "4BVUzYfBg4sZwKv0PDXuYp") {
-        headTitle
         heroTitle
         heroDescription
         heroImage {
@@ -136,7 +135,7 @@ export async function getStaticProps() {
   const getLinks = async () => {
     const notion = new NotionAPI();
     let urls = [];
-    const pageId = '74ac9e02e351472bae18997edd36328b';
+    const pageId = '6a36d869142340708cd18692d56a512b';
     const recordMap = await notion.getPage(pageId);
     const blocks = recordMap.block;
     Object.keys(blocks).forEach((key) => {
@@ -145,14 +144,13 @@ export async function getStaticProps() {
       }
     });
     // Fetch URL Preview for first 5 in array
-    const urlContent = await getLinkPreviews(urls.slice(0, 7));
+    const urlContent = await getLinkPreviews(urls.slice(0, 3));
     return urlContent;
   };
 
   const finalContent = await getLinks();
   return {
     props: {
-      headTitle: response.homePage.headTitle,
       heroData: {
         title: response.homePage.heroTitle,
         description: response.homePage.heroDescription,
@@ -162,7 +160,7 @@ export async function getStaticProps() {
         linkedin: response.homePage.linkedin,
         linkedinLogo: response.homePage.linkedinLogo.url,
       },
-      articles: JSON.parse(JSON.stringify(finalContent)),
+      resources: JSON.parse(JSON.stringify(finalContent)),
       blogPosts: response.postCollection.items,
     },
     revalidate: 10,

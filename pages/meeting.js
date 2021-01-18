@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import Head from 'next/head';
 import { InlineWidget } from 'react-calendly';
+import { NextSeo } from 'next-seo';
 
 const Meeting = () => {
   return (
     <>
-      <Head>
-        <title>Setup a meeting with Neil</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <NextSeo
+        title="Meet Me – Neil Skaria"
+        description="Setup some time on my calendar for us to chat"
+      />
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <div className="h-auto">
           <InlineWidget

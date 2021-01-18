@@ -1,17 +1,16 @@
 import { motion } from 'framer-motion';
 import { fetchContent } from '../utils/contentful';
-import Head from 'next/head';
-import moment from 'moment';
+import { NextSeo } from 'next-seo';
 import ReactMarkDown from 'react-markdown';
 import gfm from 'remark-gfm';
 
 const About = ({ content }) => {
   return (
     <>
-      <Head>
-        <title>About Me | NeilSkaria.com</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <NextSeo
+        title="About me – Neil Skaria"
+        description="My background ,employment history, and breakdown of my skills"
+      />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

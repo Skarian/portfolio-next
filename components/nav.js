@@ -21,11 +21,11 @@ const Navi = () => {
           <Link href="/about">
             <a className="mr-5 hover:text-gray-500">About</a>
           </Link>
-          <Link href="/">
-            <a className="mr-5 hover:text-gray-500">Projects</a>
-          </Link>
-          <Link href="/">
+          <Link href="/blog">
             <a className="mr-5 hover:text-gray-500">Blog</a>
+          </Link>
+          <Link href="/resources">
+            <a className="mr-5 hover:text-gray-500">Resources</a>
           </Link>
         </nav>
         <Link href="/meeting">

@@ -1,22 +1,22 @@
 import Layout from '../components/layout';
 import '../styles/global.css';
 import { AnimatePresence } from 'framer-motion';
-
-function handleExitComplete() {
-  if (typeof window !== 'undefined') {
-    window.scrollTo({ top: 0 });
-  }
-}
+import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
+import SEO from '../next-seo.config';
 
 export default function MyApp({ Component, pageProps, router }) {
   return (
-    <AnimatePresence
-      exitBeforeEnter
-      // onExitComplete={handleExitComplete}
-    >
-      <Layout>
-        <Component {...pageProps} key={router.route} />
-      </Layout>
-    </AnimatePresence>
+    <>
+      <Head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+      </Head>
+      <AnimatePresence exitBeforeEnter>
+        <Layout>
+          <DefaultSeo {...SEO} />
+          <Component {...pageProps} key={router.route} />
+        </Layout>
+      </AnimatePresence>
+    </>
   );
 }
