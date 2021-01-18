@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
 
       <Nav />
       <main>
-        <div className="container mx-auto max-w-5xl p-10">{children}</div>
+        <div className="container mx-auto max-w-5xl p-10 antialiased">{children}</div>
       </main>
     </>
   );
