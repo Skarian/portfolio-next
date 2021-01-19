@@ -19,7 +19,7 @@ const About = ({ content }) => {
       >
         <div className="space-y-10 ">
           <div className="flex justify-center">
-            <article className="prose prose-blue max-w-none">
+            <article className="prose prose-blue max-w-full">
               <ReactMarkDown plugins={[gfm]} children={content} />
             </article>
           </div>

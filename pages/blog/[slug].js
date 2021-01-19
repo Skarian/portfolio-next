@@ -36,14 +36,17 @@ const Blog = ({ blogPost }) => {
         exit={{ opacity: 0 }}
         className="space-y-16"
       >
-        <div className="space-y-10 ">
-          <div className="text-5xl font-extrabold text-center mb-10">{title}</div>
-          <div className="flex justify-center">
-            <div className="inline-flex justify-center space-x-6 mb-4 w-full">
-              <div className="text-sm text-green-500 bg-green-100 ring-1 ring-green-200 hover:ring-green-300 cursor-pointer select-none rounded-full p-3">{`${category}`}</div>
-              <div className="text-sm bg-gray-200 ring-1 ring-gray-300 select-none rounded-full p-3">{`${moment(
-                date
-              ).format('MMMM DD, YYYY')} • ${readingTime} min read `}</div>
+        <div className="space-y-8">
+          <div>
+            <div className="text-4xl md:text-5xl font-extrabold text-center mb-4">{title}</div>
+            <div className="flex justify-center">
+              <div className="inline-flex justify-center space-x-2 mb-4 w-full">
+                <div className="text-xs md:text-sm text-green-700 bg-green-100 ring-1 ring-green-200 hover:ring-green-500 cursor-pointer select-none rounded-full py-1 px-2">{`${category}`}</div>
+                <div className="font-bold">·</div>
+                <div className="text-xs md:text-sm bg-gray-200 ring-1 ring-gray-300 select-none rounded-full py-1 px-2">{`${moment(
+                  date
+                ).format('MMMM DD, YYYY')} • ${readingTime} min read `}</div>
+              </div>
             </div>
           </div>
           <div className=" prose max-w-full">
@@ -52,7 +55,7 @@ const Blog = ({ blogPost }) => {
           </div>
 
           <div className="max-w-full flex justify-center">
-            <img src={image.url} alt={alt} className="max-w-md md:max-w-3xl" />
+            <img src={image.url} alt={alt} />
           </div>
           <div className="flex justify-center">
             <article className="prose prose-blue max-w-none">
