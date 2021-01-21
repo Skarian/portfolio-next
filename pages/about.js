@@ -3,6 +3,7 @@ import { fetchContent } from '../utils/contentful';
 import { NextSeo } from 'next-seo';
 import ReactMarkDown from 'react-markdown';
 import gfm from 'remark-gfm';
+import Img from '../components/img';
 
 const About = ({ content }) => {
   return (
@@ -20,7 +21,7 @@ const About = ({ content }) => {
         <div className="space-y-10 ">
           <div className="flex justify-center">
             <article className="prose prose-blue max-w-full">
-              <ReactMarkDown plugins={[gfm]} children={content} />
+              <ReactMarkDown plugins={[gfm]} children={content} renderers={{ image: Img }} />
             </article>
           </div>
         </div>

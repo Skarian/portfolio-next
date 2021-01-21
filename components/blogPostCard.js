@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Link from 'next/link';
+import Img from './img';
 
 const BlogPostCard = ({ title, description, category, image, alt, date, body, slug }) => {
   function calcReadingTime(post) {
@@ -25,7 +26,7 @@ const BlogPostCard = ({ title, description, category, image, alt, date, body, sl
       <Link href={`blog/${slug}`}>
         <div className="md:flex">
           <div className="md:flex-shrink-0">
-            <img className="h-40 w-full object-cover md:w-40 " src={image} alt={alt} />
+            <Img className="h-40 w-full object-cover md:w-40 " src={image} alt={alt} />
           </div>
           <div className="px-8 py-6 truncate">
             <div className="uppercase tracking-wide text-sm text-green-400 font-semibold">

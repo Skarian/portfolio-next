@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
+import Img from './img';
 
 const ResourceCard = ({ title, description, link, image }) => {
   function getHostName(url) {
@@ -18,7 +19,7 @@ const ResourceCard = ({ title, description, link, image }) => {
       <a href={link} target="_blank" rel="noopener noreferrer">
         <div className="md:flex">
           <div className="md:flex-shrink-0">
-            <img
+            <Img
               className="h-40 w-full object-cover md:w-40 "
               src={image}
               alt="Link Preview"

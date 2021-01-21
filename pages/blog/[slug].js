@@ -4,6 +4,7 @@ import moment from 'moment';
 import ReactMarkDown from 'react-markdown';
 import gfm from 'remark-gfm';
 import BlogSeo from '../../components/blogSeo';
+import Img from '../../components/img';
 
 const Blog = ({ blogPost }) => {
   const { category, description, title, date, alt, body, image, slug } = blogPost;
@@ -55,11 +56,11 @@ const Blog = ({ blogPost }) => {
           </div>
 
           <div className="max-w-full flex justify-center">
-            <img src={image.url} alt={alt} />
+            <Img src={image.url} alt={alt} />
           </div>
           <div className="flex justify-center">
             <article className="prose prose-blue max-w-none">
-              <ReactMarkDown plugins={[gfm]} children={body} />
+              <ReactMarkDown plugins={[gfm]} children={body} renderers={{ image: Img }} />
             </article>
           </div>
         </div>
