@@ -10,6 +10,7 @@ export default function MyApp({ Component, pageProps, router }) {
     <>
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta httpEquiv="Accept-CH" content="DPR, Width" />
       </Head>
       <AnimatePresence exitBeforeEnter>
         <Layout>
