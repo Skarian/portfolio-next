@@ -56,7 +56,7 @@ const Blog = ({ blogPost }) => {
           </div>
 
           <div className="max-w-full flex justify-center">
-            <Img src={image.url} alt={alt} />
+            <Img src={image.url} alt={alt} optionalWidth="600" />
           </div>
           <div className="flex justify-center">
             <article className="prose prose-blue max-w-none">

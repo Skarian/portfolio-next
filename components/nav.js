@@ -1,5 +1,6 @@
 import NeilSVG from '../public/img/neil.svg';
 import Link from 'next/link';
+import Img from '../components/img';
 
 const Navi = () => {
   return (
@@ -10,7 +11,11 @@ const Navi = () => {
       >
         <Link href="/">
           <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 group">
-            <img src={NeilSVG} className="w-10 h-10 rounded full group-hover:opacity-80" />
+            <Img
+              src="https://neilskaria.com/img/neil.svg"
+              alt="an animated photo of Neil"
+              className="w-10 h-10 rounded full group-hover:opacity-80"
+            />
             <span className="ml-3 text-xl font-bold group-hover:text-gray-500">neilskaria.com</span>
           </a>
         </Link>

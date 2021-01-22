@@ -23,6 +23,7 @@ const ResourceCard = ({ title, description, link, image }) => {
               className="h-40 w-full object-cover md:w-40 "
               src={image}
               alt="Link Preview"
+              optionalWidth="500"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = 'https://picsum.photos/200';

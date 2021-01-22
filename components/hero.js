@@ -8,7 +8,7 @@ const Hero = ({ heroData }) => {
     <div className="flex flex-col md:flex-row md:space-x-12 lg:space-x-16">
       <div className="flex mb-10 md:mb-0 justify-center md:justify-start">
         <div className="max-w-sm">
-          <Img className="rounded-lg" alt="hero" src={image} />
+          <Img className="rounded-lg" alt="hero" src={image} optionalWidth="400" />
         </div>
       </div>
       <div className="flex flex-col justify-center md:w-1/2 space-y-6 items-center text-center md:text-left md:items-start">
@@ -26,7 +26,7 @@ const Hero = ({ heroData }) => {
               }
             }}
           >
-            <Img src={twitterLogo} className="w-6 h-6 " />
+            <Img src={twitterLogo} alt="twitter logo" className="w-6 h-6 " />
             <span className="ml-2 flex items-start flex-col leading-none">
               <span className="text-xs text-gray-600 mb-1 overflow-ellipsis">FOLLOW ON</span>
               <span className="font-medium text-base">Twitter</span>
@@ -40,7 +40,7 @@ const Hero = ({ heroData }) => {
               }
             }}
           >
-            <Img src={linkedinLogo} className="w-6 h-6" />
+            <Img src={linkedinLogo} alt="Linkedin Logo" className="w-6 h-6" />
             <span className="ml-2 flex items-start flex-col leading-none">
               <span className="text-xs text-gray-600 mb-1">CONNECT ON</span>
               <span className="font-medium text-base">Linkedin</span>
