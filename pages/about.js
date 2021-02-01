@@ -36,7 +36,12 @@ export async function getStaticProps() {
     }
     `
   );
-  const mdx = await renderToString(response.about.content, { components: { Image } });
+  const mdx = await renderToString(response.about.content, {
+    components: { Image },
+    mdxOptions: {
+      remarkPlugins: [require('remark-autolink-headings')],
+    },
+  });
   return {
     props: {
       mdx,

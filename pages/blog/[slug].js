@@ -93,6 +93,9 @@ export async function getStaticProps({ params }) {
   const { content, data } = matter(response.postCollection.items[0].body);
   const mdx = await renderToString(content, {
     components: { Image },
+    mdxOptions: {
+      remarkPlugins: [require('remark-autolink-headings')],
+    },
     scope: data,
   });
   return {
