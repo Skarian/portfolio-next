@@ -11,7 +11,12 @@ const Resources = ({ resources }) => {
         title="Resources – Neil Skaria"
         description="A repository of my favorite resources from the web (e.g. blog posts, articles, compendiums)"
       />
-      <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }} className="space-y-16">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="space-y-16"
+      >
         <div className="space-y-10 ">
           <div className="text-center md:text-left">
             <div className="text-2xl font-bold mb-3">🧠 Saved Resources</div>

@@ -15,7 +15,12 @@ const Home = ({ heroData, resources, blogPosts }) => {
         title="Home – Neil Skaria"
         description="Technology, strategy, finance, and everything else"
       />
-      <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }} className="space-y-16">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="space-y-16"
+      >
         <Hero heroData={heroData} />
 
         <div className="space-y-10 ">

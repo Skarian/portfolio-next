@@ -13,7 +13,12 @@ const About = ({ mdx }) => {
         title="About me – Neil Skaria"
         description="My background ,employment history, and breakdown of my skills"
       />
-      <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }} className="space-y-16">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="space-y-16"
+      >
         <div className="space-y-10 ">
           <div className="flex justify-center">
             <article className="prose prose-blue max-w-full">{content}</article>
