@@ -11,7 +11,6 @@ const Hero = ({ heroData }) => {
           className="rounded-lg"
           alt="a picture of neil wearing a suit"
           src="/images/profile.jpg"
-          priority={true}
           wrapper="max-w-sm"
           width={747}
           height={747}
