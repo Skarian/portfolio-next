@@ -10,12 +10,7 @@ const Home = ({ blogPosts }) => {
         title="Blog – Neil Skaria"
         description="A collection of my research on topics such as technology, strategy, finance etc"
       />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="space-y-16"
-      >
+      <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }} className="space-y-16">
         <div className="space-y-10 ">
           <div className="text-center md:text-left">
             <div className="text-2xl font-bold mb-3">🧐 Recent Blog Posts</div>

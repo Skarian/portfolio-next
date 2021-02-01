@@ -33,12 +33,7 @@ const Blog = ({ blogPost, mdx, frontMatter }) => {
         alt={alt}
         date={date}
       />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="space-y-16"
-      >
+      <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }} className="space-y-16">
         <div className="space-y-8">
           <div>
             <div className="text-4xl md:text-5xl font-extrabold text-center mb-4">{title}</div>
