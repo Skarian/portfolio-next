@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Link from 'next/link';
-import Img from './img';
+import Image from './image';
 
-const BlogPostCard = ({ title, description, category, image, alt, date, body, slug }) => {
+const BlogPostCard = ({ title, description, category, alt, date, body, slug }) => {
   function calcReadingTime(post) {
     const WORDS_PER_MINUTE = 200;
     let result = {};
@@ -26,18 +26,19 @@ const BlogPostCard = ({ title, description, category, image, alt, date, body, sl
       <Link href={`blog/${slug}`}>
         <div className="md:flex">
           <div className="md:flex-shrink-0">
-            <Img
-              className="h-40 w-full object-cover md:w-40 "
-              src={image}
+            <Image
+              wrapper="h-40 w-full object-cover md:w-40 relative"
+              src={`/images/blog/${slug}.jpg`}
               alt={alt}
-              optionalWidth="500"
+              objectFit="cover"
+              layout="fill"
             />
           </div>
           <div className="px-8 py-6 truncate">
             <div className="uppercase tracking-wide text-sm text-green-400 font-semibold">
               {category}
             </div>
-            <div className="block mt-1 text-lg leading-tight font-medium truncate">{title}</div>
+            <h2 className="block mt-1 text-lg leading-tight font-medium truncate">{title}</h2>
 
             <p className="mt-2 text-gray-500 truncate">{description}</p>
             <div className="flex justify-between items-center mt-3">
@@ -59,7 +60,6 @@ BlogPostCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
 };

@@ -23,14 +23,13 @@ const Home = ({ blogPosts }) => {
               A collection of my thoughts on a variety of topics
             </div>
           </div>
-          {blogPosts.map(({ title, category, description, date, alt, body, image, slug }) => {
+          {blogPosts.map(({ title, category, description, date, alt, body, slug }) => {
             return (
               <BlogPostCard
                 key={title}
                 title={title}
                 description={description}
                 category={category}
-                image={image.url}
                 alt={alt}
                 date={date}
                 body={body}
@@ -59,9 +58,6 @@ export async function getStaticProps() {
           alt
           body
           slug
-          image {
-            url
-          }
         }
       }
     }

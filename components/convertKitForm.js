@@ -1,5 +1,5 @@
 //In src/components/sub-form.component.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const ConvertKitForm = () => {
   const [status, setStatus] = useState(null);

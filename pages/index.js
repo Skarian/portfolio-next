@@ -25,19 +25,18 @@ const Home = ({ heroData, resources, blogPosts }) => {
 
         <div className="space-y-10 ">
           <div className="text-center md:text-left">
-            <div className="text-2xl font-bold mb-3">🧐 Recent Blog Posts</div>
-            <div className=" text-sm md:text-base text-gray-500">
+            <h1 className="text-2xl font-bold mb-3">🧐 Recent Blog Posts</h1>
+            <p className=" text-sm md:text-base text-gray-500">
               A collection of my thoughts on a variety of topics
-            </div>
+            </p>
           </div>
-          {blogPosts.map(({ title, category, description, date, alt, body, image, slug }) => {
+          {blogPosts.map(({ title, category, description, date, alt, body, slug }) => {
             return (
               <BlogPostCard
                 key={title}
                 title={title}
                 description={description}
                 category={category}
-                image={image.url}
                 alt={alt}
                 date={date}
                 body={body}
@@ -54,10 +53,10 @@ const Home = ({ heroData, resources, blogPosts }) => {
         </div>
         <div className="space-y-10 ">
           <div className="text-center md:text-left">
-            <div className="text-2xl font-bold mb-3">🧠 Saved Resources</div>
-            <div className=" text-sm md:text-base text-gray-500">
+            <h1 className="text-2xl font-bold mb-3">🧠 Saved Resources</h1>
+            <p className=" text-sm md:text-base text-gray-500">
               A list of articles and blog posts that I reference back to
-            </div>
+            </p>
           </div>
           {resources.map((resource) => {
             if (resource.title && resource.description && resource.images[0]) {
@@ -92,17 +91,9 @@ export async function getStaticProps() {
       homePage (id: "4BVUzYfBg4sZwKv0PDXuYp") {
         heroTitle
         heroDescription
-        heroImage {
-          url
-        }
         twitter
-        twitterLogo {
-          url
-        }
         linkedin
-        linkedinLogo {
-          url
-        }
+
       }
       postCollection(limit: 3) {
         items {
@@ -113,9 +104,6 @@ export async function getStaticProps() {
           alt
           body
           slug
-          image {
-            url
-          }
         }
       }
     }
@@ -154,11 +142,8 @@ export async function getStaticProps() {
       heroData: {
         title: response.homePage.heroTitle,
         description: response.homePage.heroDescription,
-        image: response.homePage.heroImage.url,
         twitter: response.homePage.twitter,
-        twitterLogo: response.homePage.twitterLogo.url,
         linkedin: response.homePage.linkedin,
-        linkedinLogo: response.homePage.linkedinLogo.url,
       },
       resources: JSON.parse(JSON.stringify(finalContent)),
       blogPosts: response.postCollection.items,

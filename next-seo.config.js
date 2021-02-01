@@ -1,6 +1,6 @@
 const title = 'Neil Skaria – Technology, Strategy, Finance.';
 const description =
-  'an experienced professional with expertise in tech strategy, operations, and finance';
+  'Hi, my name is Neil Skaria. I write about emerging markets, technology trends, business strategy, finance, productivity, and much more!';
 
 const SEO = {
   title,

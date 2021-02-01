@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import Img from './img';
+import Image from './image';
 
 const ResourceCard = ({ title, description, link, image }) => {
   function getHostName(url) {
@@ -19,11 +19,12 @@ const ResourceCard = ({ title, description, link, image }) => {
       <a href={link} target="_blank" rel="noopener noreferrer">
         <div className="md:flex">
           <div className="md:flex-shrink-0">
-            <Img
-              className="h-40 w-full object-cover md:w-40 "
+            <Image
+              wrapper="h-40 w-full object-cover md:w-40 relative"
               src={image}
               alt="Link Preview"
-              optionalWidth="500"
+              objectFit="cover"
+              layout="fill"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = 'https://picsum.photos/200';
@@ -31,7 +32,7 @@ const ResourceCard = ({ title, description, link, image }) => {
             />
           </div>
           <div className="p-8 truncate">
-            <div className="block mt-1 text-lg leading-tight font-medium truncate">{title}</div>
+            <h2 className="block mt-1 text-lg leading-tight font-medium truncate">{title}</h2>
 
             <p className="mt-2 text-gray-500 truncate mb-5">{description}</p>
 

@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { fetchContent } from '../utils/contentful';
 import { NextSeo } from 'next-seo';
-import ReactMarkDown from 'react-markdown';
-import gfm from 'remark-gfm';
-import Img from '../components/img';
+import renderToString from 'next-mdx-remote/render-to-string';
+import hydrate from 'next-mdx-remote/hydrate';
+import Image from '../components/image';
 
-const About = ({ content }) => {
+const About = ({ mdx }) => {
+  const content = hydrate(mdx, { components: { Image } });
   return (
     <>
       <NextSeo
@@ -20,9 +21,7 @@ const About = ({ content }) => {
       >
         <div className="space-y-10 ">
           <div className="flex justify-center">
-            <article className="prose prose-blue max-w-full">
-              <ReactMarkDown plugins={[gfm]} children={content} renderers={{ image: Img }} />
-            </article>
+            <article className="prose prose-blue max-w-full">{content}</article>
           </div>
         </div>
       </motion.div>
@@ -42,9 +41,10 @@ export async function getStaticProps() {
     }
     `
   );
+  const mdx = await renderToString(response.about.content, { components: { Image } });
   return {
     props: {
-      content: response.about.content,
+      mdx,
     },
     revalidate: 10,
   };

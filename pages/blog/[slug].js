@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import { fetchContent } from '../../utils/contentful';
 import moment from 'moment';
-import ReactMarkDown from 'react-markdown';
-import gfm from 'remark-gfm';
 import BlogSeo from '../../components/blogSeo';
-import Img from '../../components/img';
+import renderToString from 'next-mdx-remote/render-to-string';
+import hydrate from 'next-mdx-remote/hydrate';
+import Image from '../../components/image';
 
-const Blog = ({ blogPost }) => {
-  const { category, description, title, date, alt, body, image, slug } = blogPost;
+const Blog = ({ blogPost, mdx }) => {
+  const content = hydrate(mdx, { components: { Image } });
+  const { category, description, title, date, alt, slug, body } = blogPost;
   function calcReadingTime(post) {
     const WORDS_PER_MINUTE = 200;
     let result = {};
@@ -27,7 +28,7 @@ const Blog = ({ blogPost }) => {
         url={`https://neilskaria.com/blog/${slug}`}
         title={title}
         description={description}
-        image={image}
+        image={`/images/blog/${slug}.jpg`}
         alt={alt}
         date={date}
       />
@@ -56,12 +57,10 @@ const Blog = ({ blogPost }) => {
           </div>
 
           <div className="max-w-full flex justify-center">
-            <Img src={image.url} alt={alt} optionalWidth="600" />
+            <Image src={`/images/blog/${slug}.jpg`} wrapper="max-w-2xl" />
           </div>
           <div className="flex justify-center">
-            <article className="prose prose-blue max-w-none">
-              <ReactMarkDown plugins={[gfm]} children={body} renderers={{ image: Img }} />
-            </article>
+            <article className="prose prose-blue max-w-none">{content}</article>
           </div>
         </div>
       </motion.div>
@@ -83,18 +82,19 @@ export async function getStaticProps({ params }) {
           date
           alt
           body
-          image {
-            url
-          }
           slug
         }
       }
     }
     `
   );
+  const mdx = await renderToString(response.postCollection.items[0].body, {
+    components: { Image },
+  });
   return {
     props: {
       blogPost: response.postCollection.items[0],
+      mdx,
     },
     revalidate: 10,
   };
