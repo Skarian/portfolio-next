@@ -5,8 +5,9 @@ import BlogSeo from '../../components/blogSeo';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 import Image from '../../components/image';
+import matter from 'gray-matter';
 
-const Blog = ({ blogPost, mdx }) => {
+const Blog = ({ blogPost, mdx, frontMatter }) => {
   const content = hydrate(mdx, { components: { Image } });
   const { category, description, title, date, alt, slug, body } = blogPost;
   function calcReadingTime(post) {
@@ -28,7 +29,7 @@ const Blog = ({ blogPost, mdx }) => {
         url={`https://neilskaria.com/blog/${slug}`}
         title={title}
         description={description}
-        image={`/images/blog/${slug}.jpg`}
+        image={frontMatter.image}
         alt={alt}
         date={date}
       />
@@ -57,7 +58,13 @@ const Blog = ({ blogPost, mdx }) => {
           </div>
 
           <div className="max-w-full flex justify-center">
-            <Image src={`/images/blog/${slug}.jpg`} wrapper="max-w-2xl" />
+            <Image
+              src={frontMatter.image}
+              width={frontMatter.width}
+              height={frontMatter.height}
+              alt={frontMatter.alt}
+              wrapper="max-w-2xl"
+            />
           </div>
           <div className="flex justify-center">
             <article className="prose prose-blue max-w-none">{content}</article>
@@ -88,13 +95,16 @@ export async function getStaticProps({ params }) {
     }
     `
   );
-  const mdx = await renderToString(response.postCollection.items[0].body, {
+  const { content, data } = matter(response.postCollection.items[0].body);
+  const mdx = await renderToString(content, {
     components: { Image },
+    scope: data,
   });
   return {
     props: {
       blogPost: response.postCollection.items[0],
       mdx,
+      frontMatter: data,
     },
     revalidate: 10,
   };

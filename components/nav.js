@@ -12,8 +12,8 @@ const Navi = () => {
           <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 group">
             <Image
               src="/images/neil.svg"
-              width={50}
-              height={50}
+              width={40}
+              height={40}
               alt="an animated photo of Neil"
               wrapper="w-10 h-10 group-hover:opacity-80"
               priority={true}

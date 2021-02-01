@@ -13,6 +13,8 @@ const Hero = ({ heroData }) => {
           src="/images/profile.jpg"
           priority={true}
           wrapper="max-w-sm"
+          width={747}
+          height={747}
         />
       </div>
       <div className="flex flex-col justify-center md:w-1/2 space-y-6 items-center text-center md:text-left md:items-start">
@@ -30,7 +32,13 @@ const Hero = ({ heroData }) => {
               }
             }}
           >
-            <Image src="/images/social/twitter.svg" alt="Twitter Logo" wrapper="w-6 h-6" />
+            <Image
+              src="/images/social/twitter.svg"
+              alt="Twitter Logo"
+              wrapper="w-6 h-6"
+              height={50}
+              width={50}
+            />
             <span className="ml-2 flex items-start flex-col leading-none">
               <span className="text-xs text-gray-600 mb-1 overflow-ellipsis">FOLLOW ON</span>
               <span className="font-medium text-base">Twitter</span>
@@ -44,7 +52,13 @@ const Hero = ({ heroData }) => {
               }
             }}
           >
-            <Image src="/images/social/linkedin.svg" alt="Linkedin Logo" wrapper="w-6 h-6" />
+            <Image
+              src="/images/social/linkedin.svg"
+              alt="Linkedin Logo"
+              wrapper="w-6 h-6"
+              height={50}
+              width={50}
+            />
             <span className="ml-2 flex items-start flex-col leading-none">
               <span className="text-xs text-gray-600 mb-1">CONNECT ON</span>
               <span className="font-medium text-base">Linkedin</span>
