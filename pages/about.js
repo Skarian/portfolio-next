@@ -39,7 +39,7 @@ export async function getStaticProps() {
   const mdx = await renderToString(response.about.content, {
     components: { Image },
     mdxOptions: {
-      remarkPlugins: [require('remark-autolink-headings')],
+      remarkPlugins: [require('remark-slug'), require('remark-autolink-headings')],
     },
   });
   return {
