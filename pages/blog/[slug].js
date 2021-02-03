@@ -34,9 +34,20 @@ const Blog = ({ blogPost, mdx, frontMatter }) => {
         date={date}
       />
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        initial="pageInitial"
+        animate="pageAnimate"
+        exit="pageExit"
+        variants={{
+          pageInitial: {
+            opacity: 0,
+          },
+          pageAnimate: {
+            opacity: 1,
+          },
+          pageExit: {
+            opacity: 0,
+          },
+        }}
         className="space-y-16"
       >
         <div className="space-y-8">
@@ -64,6 +75,7 @@ const Blog = ({ blogPost, mdx, frontMatter }) => {
               height={frontMatter.height}
               alt={frontMatter.alt}
               wrapper="max-w-2xl"
+              priority={true}
             />
           </div>
           <div className="flex justify-center">

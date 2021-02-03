@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import Image from './image';
 
-const ResourceCard = ({ title, description, link, image }) => {
+const ResourceCard = ({ title, description, link, image, imagePriority }) => {
   function getHostName(url) {
     var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
     if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
@@ -25,10 +25,7 @@ const ResourceCard = ({ title, description, link, image }) => {
               alt="Link Preview"
               objectFit="cover"
               layout="fill"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = 'https://picsum.photos/200';
-              }}
+              priority={imagePriority}
             />
           </div>
           <div className="p-8 truncate">
@@ -53,4 +50,8 @@ ResourceCard.propTypes = {
   description: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+};
+
+ResourceCard.defaultProps = {
+  imagePriority: false,
 };

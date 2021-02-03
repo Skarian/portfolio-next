@@ -17,12 +17,12 @@ export default function MyApp({ Component, pageProps, router }) {
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-      <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
-        <Layout>
-          <DefaultSeo {...SEO} />
+      <Layout>
+        <DefaultSeo {...SEO} />
+        <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
           <Component {...pageProps} key={router.route} />
-        </Layout>
-      </AnimatePresence>
+        </AnimatePresence>
+      </Layout>
     </>
   );
 }

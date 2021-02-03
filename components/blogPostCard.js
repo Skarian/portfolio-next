@@ -32,6 +32,7 @@ const BlogPostCard = ({ title, description, category, alt, date, body, slug }) =
               alt={alt}
               objectFit="cover"
               layout="fill"
+              priority={true}
             />
           </div>
           <div className="px-8 py-6 truncate">
