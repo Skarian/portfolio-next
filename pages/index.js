@@ -16,20 +16,9 @@ const Home = ({ heroData, resources, blogPosts }) => {
         description="Technology, strategy, finance, and everything else"
       />
       <motion.div
-        initial="pageInitial"
-        animate="pageAnimate"
-        exit="pageExit"
-        variants={{
-          pageInitial: {
-            opacity: 0,
-          },
-          pageAnimate: {
-            opacity: 1,
-          },
-          pageExit: {
-            opacity: 0,
-          },
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         className="space-y-16"
       >
         <Hero heroData={heroData} />

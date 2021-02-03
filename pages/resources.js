@@ -12,20 +12,9 @@ const Resources = ({ resources }) => {
         description="A repository of my favorite resources from the web (e.g. blog posts, articles, compendiums)"
       />
       <motion.div
-        initial="pageInitial"
-        animate="pageAnimate"
-        exit="pageExit"
-        variants={{
-          pageInitial: {
-            opacity: 0,
-          },
-          pageAnimate: {
-            opacity: 1,
-          },
-          pageExit: {
-            opacity: 0,
-          },
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         className="space-y-16"
       >
         <div className="space-y-10 ">
@@ -35,7 +24,7 @@ const Resources = ({ resources }) => {
               A list of articles and blog posts that I reference back to
             </div>
           </div>
-          {resources.map((resource, index) => {
+          {resources.map((resource) => {
             if (resource.title && resource.description && resource.images[0]) {
               return (
                 <ResourceCard
@@ -44,7 +33,6 @@ const Resources = ({ resources }) => {
                   description={resource.description}
                   link={resource.url}
                   image={resource.images[0]}
-                  priority={index < 5 ? true : false}
                 />
               );
             }

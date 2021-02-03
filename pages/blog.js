@@ -11,20 +11,9 @@ const Home = ({ blogPosts }) => {
         description="A collection of my research on topics such as technology, strategy, finance etc"
       />
       <motion.div
-        initial="pageInitial"
-        animate="pageAnimate"
-        exit="pageExit"
-        variants={{
-          pageInitial: {
-            opacity: 0,
-          },
-          pageAnimate: {
-            opacity: 1,
-          },
-          pageExit: {
-            opacity: 0,
-          },
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         className="space-y-16"
       >
         <div className="space-y-10 ">

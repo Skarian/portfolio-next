@@ -12,7 +12,6 @@ const Hero = ({ heroData }) => {
           alt="a picture of neil wearing a suit"
           src="/images/profile.jpg"
           wrapper="max-w-sm"
-          priority={true}
           width={747}
           height={747}
         />
@@ -38,7 +37,6 @@ const Hero = ({ heroData }) => {
               wrapper="w-6 h-6"
               height={50}
               width={50}
-              priority={true}
             />
             <span className="ml-2 flex items-start flex-col leading-none">
               <span className="text-xs text-gray-600 mb-1 overflow-ellipsis">FOLLOW ON</span>
@@ -59,7 +57,6 @@ const Hero = ({ heroData }) => {
               wrapper="w-6 h-6"
               height={50}
               width={50}
-              priority={true}
             />
             <span className="ml-2 flex items-start flex-col leading-none">
               <span className="text-xs text-gray-600 mb-1">CONNECT ON</span>
