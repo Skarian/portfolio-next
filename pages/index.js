@@ -46,7 +46,7 @@ const Home = ({ heroData, resources, blogPosts }) => {
           })}
 
           <Link href="/blog">
-            <button className="inline-flex text-md leading-tight font-medium bg-green-300 border-1 py-1.5 px-6 focus:outline-none hover:bg-green-500 rounded-lg text-gray-900">
+            <button className="inline-flex text-md leading-tight font-medium bg-green-300 border-1 py-1.5 px-6 focus:outline-none hover:bg-green-500 rounded-lg text-green-900">
               Read more
             </button>
           </Link>
@@ -73,7 +73,7 @@ const Home = ({ heroData, resources, blogPosts }) => {
             }
           })}
           <Link href="/resources">
-            <button className="inline-flex text-md leading-tight font-medium bg-green-300 border-1 py-1.5 px-6 focus:outline-none hover:bg-green-500 rounded-lg text-gray-900">
+            <button className="inline-flex text-md leading-tight font-medium bg-green-300 border-1 py-1.5 px-6 focus:outline-none hover:bg-green-500 rounded-lg text-green-900">
               Read more
             </button>
           </Link>
