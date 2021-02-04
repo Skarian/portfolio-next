@@ -20,7 +20,7 @@ const BlogPostCard = ({ title, description, category, alt, date, body, slug }) =
   const readingTime = calcReadingTime(body).readingTime;
   return (
     <motion.div
-      className="mx-auto bg-white rounded-xl ring-1 ring-gray-200 shadow-sm overflow-hidden cursor-pointer mt-5 select-none hover:ring-green-300"
+      className="mx-auto bg-white rounded-xl ring-1 ring-gray-200 shadow-sm overflow-hidden cursor-pointer mt-5 select-none hover:ring-green-500"
       whileHover={{ y: -5 }}
     >
       <Link href={`blog/${slug}`}>
@@ -42,10 +42,8 @@ const BlogPostCard = ({ title, description, category, alt, date, body, slug }) =
 
             <p className="mt-2 text-gray-900 truncate">{description}</p>
             <div className="flex justify-between items-center mt-3">
-              <span className="font-light text-sm text-gray-800">
-                {moment(date).format('MMM DD, YYYY')}
-              </span>
-              <span className="font-light text-sm text-gray-800">{readingTime} min read</span>
+              <span className="text-sm text-gray-800">{moment(date).format('MMM DD, YYYY')}</span>
+              <span className="text-sm text-gray-800">{readingTime} min read</span>
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ const ResourceCard = ({ title, description, link, image }) => {
   }
   return (
     <motion.div
-      className="mx-auto bg-white rounded-xl ring-1 ring-gray-200 shadow-sm overflow-hidden cursor-pointer mt-5 select-none hover:ring-green-300"
+      className="mx-auto bg-white rounded-xl ring-1 ring-gray-200 shadow-sm overflow-hidden cursor-pointer mt-5 select-none hover:ring-green-500"
       whileHover={{ y: -5 }}
     >
       <a href={link} target="_blank" rel="noopener noreferrer">

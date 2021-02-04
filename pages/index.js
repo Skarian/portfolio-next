@@ -46,11 +46,12 @@ const Home = ({ heroData, resources, blogPosts }) => {
           })}
 
           <Link href="/blog">
-            <div className="inline-flex cursor-pointer text-white bg-green-500 border-0 py-1.5 px-6 focus:outline-none hover:bg-green-600 rounded-lg text-base">
+            <button className="inline-flex text-md leading-tight font-medium bg-green-300 border-1 py-1.5 px-6 focus:outline-none hover:bg-green-500 rounded-lg text-gray-900">
               Read more
-            </div>
+            </button>
           </Link>
         </div>
+
         <div className="space-y-10 ">
           <div className="text-center md:text-left">
             <h1 className="text-2xl font-bold mb-3">🧠 Saved Resources</h1>
@@ -72,9 +73,9 @@ const Home = ({ heroData, resources, blogPosts }) => {
             }
           })}
           <Link href="/resources">
-            <div className="inline-flex cursor-pointer text-white bg-green-500 border-0 py-1.5 px-6 focus:outline-none hover:bg-green-600 rounded-lg text-base">
+            <button className="inline-flex text-md leading-tight font-medium bg-green-300 border-1 py-1.5 px-6 focus:outline-none hover:bg-green-500 rounded-lg text-gray-900">
               Read more
-            </div>
+            </button>
           </Link>
         </div>
       </motion.div>

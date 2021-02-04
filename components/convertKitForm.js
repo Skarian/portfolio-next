@@ -65,7 +65,7 @@ const ConvertKitForm = () => {
 
         <button
           type="submit"
-          className="inline-flex text-white bg-green-500 border-0 py-1.5 px-6 focus:outline-none hover:bg-green-600 rounded-lg text-base animate-pulse"
+          className="inline-flex text-md leading-tight font-medium bg-green-300 border-1 py-1.5 px-6 focus:outline-none hover:bg-green-500 rounded-lg text-gray-900"
         >
           Subscribe
         </button>
