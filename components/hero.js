@@ -19,7 +19,7 @@ const Hero = ({ heroData }) => {
       <div className="flex flex-col justify-center md:w-1/2 space-y-6 items-center text-center md:text-left md:items-start">
         <div>
           <h1 className="text-2xl font-bold mb-3">{title}</h1>
-          <p className=" text-base text-gray-500">{description}</p>
+          <p className=" text-base text-gray-900">{description}</p>
         </div>
         <ConvertKitForm />
         <div className="flex">
@@ -39,7 +39,7 @@ const Hero = ({ heroData }) => {
               width={50}
             />
             <span className="ml-2 flex items-start flex-col leading-none">
-              <span className="text-xs text-gray-600 mb-1 overflow-ellipsis">FOLLOW ON</span>
+              <span className="text-xs text-gray-900 mb-1 overflow-ellipsis">FOLLOW ON</span>
               <span className="font-medium text-base">Twitter</span>
             </span>
           </button>
@@ -59,7 +59,7 @@ const Hero = ({ heroData }) => {
               width={50}
             />
             <span className="ml-2 flex items-start flex-col leading-none">
-              <span className="text-xs text-gray-600 mb-1">CONNECT ON</span>
+              <span className="text-xs text-gray-900 mb-1">CONNECT ON</span>
               <span className="font-medium text-base">Linkedin</span>
             </span>
           </button>

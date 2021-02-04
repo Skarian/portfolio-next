@@ -30,9 +30,9 @@ const ResourceCard = ({ title, description, link, image }) => {
           <div className="p-8 truncate">
             <h2 className="block mt-1 text-lg leading-tight font-medium truncate">{title}</h2>
 
-            <p className="mt-2 text-gray-500 truncate mb-5">{description}</p>
+            <p className="mt-2 text-gray-900 truncate mb-5">{description}</p>
 
-            <div className="uppercase tracking-wide text-xs text-green-400 font-semibold">
+            <div className="uppercase tracking-wide text-xs text-green-500 font-semibold">
               <span className="pr-1">🔗</span> {getHostName(link)}
             </div>
           </div>

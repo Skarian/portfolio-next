@@ -26,7 +26,7 @@ const Home = ({ heroData, resources, blogPosts }) => {
         <div className="space-y-10 ">
           <div className="text-center md:text-left">
             <h1 className="text-2xl font-bold mb-3">🧐 Recent Blog Posts</h1>
-            <p className=" text-sm md:text-base text-gray-500">
+            <p className=" text-sm md:text-base text-gray-900">
               A collection of my thoughts on a variety of topics
             </p>
           </div>
@@ -54,7 +54,7 @@ const Home = ({ heroData, resources, blogPosts }) => {
         <div className="space-y-10 ">
           <div className="text-center md:text-left">
             <h1 className="text-2xl font-bold mb-3">🧠 Saved Resources</h1>
-            <p className=" text-sm md:text-base text-gray-500">
+            <p className=" text-sm md:text-base text-gray-900">
               A list of articles and blog posts that I reference back to
             </p>
           </div>

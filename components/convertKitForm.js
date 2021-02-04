@@ -40,13 +40,13 @@ const ConvertKitForm = () => {
   return (
     <form action={FORM_URL} method="post" onSubmit={handleSubmit}>
       {status === null ? (
-        <div className="text-sm mt-2 mb-2 text-gray-500">Subscribe for 🔥 research!</div>
+        <div className="text-sm mt-2 mb-2 text-gray-900">Subscribe for 🔥 research!</div>
       ) : status === 'SUCCESS' ? (
-        <label className="text-sm mt-2 mb-8 text-green-500 font-bold">
+        <label className="text-sm mt-2 mb-8 text-green-900 font-bold">
           Success! Please go confirm your subscription!
         </label>
       ) : status === 'ERROR' ? (
-        <label className="text-sm mt-2  mb-8 text-red-500 font-bold">
+        <label className="text-sm mt-2  mb-8 text-red-900 font-bold">
           Oops, Something went wrong! try again.
         </label>
       ) : null}

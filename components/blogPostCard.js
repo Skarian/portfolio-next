@@ -35,17 +35,17 @@ const BlogPostCard = ({ title, description, category, alt, date, body, slug }) =
             />
           </div>
           <div className="px-8 py-6 truncate">
-            <div className="uppercase tracking-wide text-sm text-green-400 font-semibold">
+            <div className="uppercase tracking-wide text-sm text-green-500 font-semibold">
               {category}
             </div>
             <h2 className="block mt-1 text-lg leading-tight font-medium truncate">{title}</h2>
 
-            <p className="mt-2 text-gray-500 truncate">{description}</p>
+            <p className="mt-2 text-gray-900 truncate">{description}</p>
             <div className="flex justify-between items-center mt-3">
-              <span className="font-light text-sm text-gray-500">
+              <span className="font-light text-sm text-gray-800">
                 {moment(date).format('MMM DD, YYYY')}
               </span>
-              <span className="font-light text-sm text-gray-500">{readingTime} min read</span>
+              <span className="font-light text-sm text-gray-800">{readingTime} min read</span>
             </div>
           </div>
         </div>
