@@ -10,6 +10,9 @@ import {
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../next-seo.config';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import * as gtag from '../utils/gtag';
 
 function handleExitComplete() {
   if (typeof window !== 'undefined') {
@@ -18,6 +21,16 @@ function handleExitComplete() {
 }
 
 export default function MyApp({ Component, pageProps, router }) {
+  const eventRouter = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    eventRouter.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      eventRouter.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [eventRouter.events]);
   return (
     <>
       <Head>
