@@ -35,5 +35,8 @@
     "remark-slug": "^6.0.0",
     "tailwindcss": "^2.0.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "globby": "^11.0.2",
+    "prettier": "^2.2.1"
+  }
 }

@@ -8,6 +8,10 @@ module.exports = withBundleAnalyzer({
     domains: ['res.cloudinary.com'],
   },
   webpack: (config, { dev, isServer }) => {
+    // Generate Dynamic Sitemap
+    if (isServer) {
+      require('./scripts/generate-sitemap');
+    }
     // Replace React with Preact only in client production build
     if (!dev && !isServer) {
       Object.assign(config.resolve.alias, {
