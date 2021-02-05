@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { fetchContent } from '../utils/contentful';
 import Hero from '../components/hero';
 import BlogPostCard from '../components/blogPostCard';
@@ -7,6 +6,8 @@ import Link from 'next/link';
 import { getLinkPreview } from 'link-preview-js';
 import { NotionAPI } from 'notion-client';
 import { NextSeo } from 'next-seo';
+import moment from 'moment';
+import { m as motion } from 'framer-motion';
 
 const Home = ({ heroData, resources, blogPosts }) => {
   return (
@@ -110,6 +111,10 @@ export async function getStaticProps() {
     }
     `
   );
+  const adjustedResponse = response.postCollection.items.map((map) => {
+    map.date = moment(map.date).format('MMM DD, YYYY');
+    return map;
+  });
   // Take array of URLs and return rich content preview using link-preview-js
   const getLinkPreviews = (myArray) => {
     const promises = myArray.map(async (myValue) => {
@@ -147,7 +152,7 @@ export async function getStaticProps() {
         linkedin: response.homePage.linkedin,
       },
       resources: JSON.parse(JSON.stringify(finalContent)),
-      blogPosts: response.postCollection.items,
+      blogPosts: adjustedResponse,
     },
     revalidate: 10,
   };

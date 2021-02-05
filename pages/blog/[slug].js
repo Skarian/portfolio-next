@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { fetchContent } from '../../utils/contentful';
 import moment from 'moment';
 import BlogSeo from '../../components/blogSeo';
@@ -46,9 +46,7 @@ const Blog = ({ blogPost, mdx, frontMatter }) => {
               <div className="inline-flex justify-center space-x-2 mb-4 w-full">
                 <div className="text-xs md:text-sm text-green-700 bg-green-100 ring-1 ring-green-200 hover:ring-green-500 cursor-pointer select-none rounded-full py-1 px-2">{`${category}`}</div>
                 <div className="font-bold">·</div>
-                <div className="text-xs md:text-sm bg-gray-200 ring-1 ring-gray-300 select-none rounded-full py-1 px-2">{`${moment(
-                  date
-                ).format('MMMM DD, YYYY')} • ${readingTime} min read `}</div>
+                <div className="text-xs md:text-sm bg-gray-200 ring-1 ring-gray-300 select-none rounded-full py-1 px-2">{`${date} • ${readingTime} min read `}</div>
               </div>
             </div>
           </div>
@@ -94,6 +92,9 @@ export async function getStaticProps({ params }) {
       }
     }
     `
+  );
+  response.postCollection.items[0].date = moment(response.postCollection.items[0].date).format(
+    'MMMM DD, YYYY'
   );
   const { content, data } = matter(response.postCollection.items[0].body);
   const mdx = await renderToString(content, {

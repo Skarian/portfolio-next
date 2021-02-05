@@ -1,6 +1,5 @@
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import Link from 'next/link';
 import Image from './image';
 
@@ -42,7 +41,7 @@ const BlogPostCard = ({ title, description, category, alt, date, body, slug }) =
 
             <p className="mt-2 text-gray-900 truncate">{description}</p>
             <div className="flex justify-between items-center mt-3">
-              <span className="text-sm text-gray-800">{moment(date).format('MMM DD, YYYY')}</span>
+              <span className="text-sm text-gray-800">{date}</span>
               <span className="text-sm text-gray-800">{readingTime} min read</span>
             </div>
           </div>

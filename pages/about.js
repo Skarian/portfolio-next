@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { fetchContent } from '../utils/contentful';
 import { NextSeo } from 'next-seo';
 import renderToString from 'next-mdx-remote/render-to-string';

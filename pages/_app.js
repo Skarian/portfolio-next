@@ -1,6 +1,12 @@
 import Layout from '../components/layout';
 import '../styles/global.css';
-import { AnimatePresence } from 'framer-motion';
+import {
+  AnimatePresence,
+  MotionConfig,
+  AnimationFeature,
+  ExitFeature,
+  GesturesFeature,
+} from 'framer-motion';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../next-seo.config';
@@ -18,10 +24,12 @@ export default function MyApp({ Component, pageProps, router }) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
-        <Layout>
-          <DefaultSeo {...SEO} />
-          <Component {...pageProps} key={router.route} />
-        </Layout>
+        <MotionConfig features={[AnimationFeature, ExitFeature, GesturesFeature]}>
+          <Layout>
+            <DefaultSeo {...SEO} />
+            <Component {...pageProps} key={router.route} />
+          </Layout>
+        </MotionConfig>
       </AnimatePresence>
     </>
   );

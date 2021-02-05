@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import ResourceCard from '../components/resourceCard';
 import { getLinkPreview } from 'link-preview-js';
 import { NotionAPI } from 'notion-client';

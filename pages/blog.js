@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { fetchContent } from '../utils/contentful';
 import BlogPostCard from '../components/blogPostCard';
 import { NextSeo } from 'next-seo';
