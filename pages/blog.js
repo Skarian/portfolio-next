@@ -2,6 +2,7 @@ import { m as motion } from 'framer-motion';
 import { fetchContent } from '../utils/contentful';
 import BlogPostCard from '../components/blogPostCard';
 import { NextSeo } from 'next-seo';
+import moment from 'moment';
 
 const Home = ({ blogPosts }) => {
   return (
@@ -63,9 +64,13 @@ export async function getStaticProps() {
     }
     `
   );
+  const adjustedResponse = response.postCollection.items.map((map) => {
+    map.date = moment(map.date).format('MMM DD, YYYY');
+    return map;
+  });
   return {
     props: {
-      blogPosts: response.postCollection.items,
+      blogPosts: adjustedResponse,
     },
     revalidate: 10,
   };

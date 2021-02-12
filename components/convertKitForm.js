@@ -1,7 +1,7 @@
 //In src/components/sub-form.component.js
 import { useState } from 'react';
 
-const ConvertKitForm = () => {
+const ConvertKitForm = ({ turnOffCaption }) => {
   const [status, setStatus] = useState(null);
   const [email, setEmail] = useState('');
 
@@ -39,7 +39,7 @@ const ConvertKitForm = () => {
 
   return (
     <form action={FORM_URL} method="post" onSubmit={handleSubmit}>
-      {status === null ? (
+      {status === null && turnOffCaption !== true ? (
         <div className="text-sm mt-2 mb-2 text-gray-900">Subscribe for 🔥 research!</div>
       ) : status === 'SUCCESS' ? (
         <label className="text-sm mt-2 mb-8 text-green-900 font-bold">
@@ -75,3 +75,7 @@ const ConvertKitForm = () => {
 };
 
 export default ConvertKitForm;
+
+ConvertKitForm.defaultProps = {
+  turnOffCaption: false,
+};

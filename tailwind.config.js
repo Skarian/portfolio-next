@@ -7,6 +7,7 @@ module.exports = {
   variants: {
     extend: {
       ringColor: ['hover'],
+      display: ['group-hover'],
     },
   },
   plugins: [require('@tailwindcss/typography')],

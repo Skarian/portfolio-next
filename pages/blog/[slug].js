@@ -6,6 +6,8 @@ import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 import Image from '../../components/image';
 import matter from 'gray-matter';
+import Share from '../../components/share';
+import ConvertKitForm from '../../components/convertKitForm';
 
 const Blog = ({ blogPost, mdx, frontMatter }) => {
   const content = hydrate(mdx, { components: { Image } });
@@ -46,7 +48,10 @@ const Blog = ({ blogPost, mdx, frontMatter }) => {
               <div className="inline-flex justify-center space-x-2 mb-4 w-full">
                 <div className="text-xs md:text-sm text-green-700 bg-green-100 ring-1 ring-green-200 hover:ring-green-500 cursor-pointer select-none rounded-full py-1 px-2">{`${category}`}</div>
                 <div className="font-bold">·</div>
-                <div className="text-xs md:text-sm bg-gray-200 ring-1 ring-gray-300 select-none rounded-full py-1 px-2">{`${date} • ${readingTime} min read `}</div>
+                <div className="hidden md:block text-xs md:text-sm bg-gray-200 ring-1 ring-gray-300 select-none rounded-full py-1 px-2">{`${date} • ${readingTime} min read `}</div>
+                <div className="md:hidden text-xs md:text-sm bg-gray-200 ring-1 ring-gray-300 select-none rounded-full py-1 px-2">{`${date}`}</div>
+                <div className="font-bold">·</div>
+                <Share slug={slug} />
               </div>
             </div>
           </div>
@@ -66,6 +71,17 @@ const Blog = ({ blogPost, mdx, frontMatter }) => {
           </div>
           <div className="flex justify-center">
             <article className="prose prose-blue max-w-none">{content}</article>
+          </div>
+          <div className="w-full flex justify-center">
+            <div className="max-w-lg bg-blue-100 rounded-lg p-10">
+              <h1 className="text-2xl font-bold mb-3 text-center">Join my newsletter!</h1>
+              <p className=" text-sm md:text-base text-gray-900 max-w-s text-center">
+                If you liked the article please sign up!
+              </p>
+              <div className=" py-2">
+                <ConvertKitForm turnOffCaption />
+              </div>
+            </div>
           </div>
         </div>
       </motion.div>
