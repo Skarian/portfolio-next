@@ -35,6 +35,7 @@ const Home = ({ blogPosts }) => {
                 date={date}
                 body={body}
                 slug={slug}
+                priority={true}
               />
             );
           })}

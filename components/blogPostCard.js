@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Image from './image';
 
-const BlogPostCard = ({ title, description, category, alt, date, body, slug }) => {
+const BlogPostCard = ({ title, description, category, alt, date, body, slug, priority }) => {
   function calcReadingTime(post) {
     const WORDS_PER_MINUTE = 200;
     let result = {};
@@ -31,6 +31,7 @@ const BlogPostCard = ({ title, description, category, alt, date, body, slug }) =
               alt={alt}
               objectFit="cover"
               layout="fill"
+              priority={priority}
             />
           </div>
           <div className="px-8 py-6 truncate">
@@ -59,4 +60,8 @@ BlogPostCard.propTypes = {
   category: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
+};
+
+BlogPostCard.defaultProps = {
+  priority: false,
 };

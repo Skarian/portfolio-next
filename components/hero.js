@@ -14,6 +14,7 @@ const Hero = ({ heroData }) => {
           wrapper="max-w-sm"
           width={747}
           height={747}
+          priority
         />
       </div>
       <div className="flex flex-col justify-center md:w-1/2 space-y-6 items-center text-center md:text-left md:items-start">
@@ -37,6 +38,7 @@ const Hero = ({ heroData }) => {
               wrapper="w-6 h-6"
               height={50}
               width={50}
+              priority
             />
             <span className="ml-2 flex items-start flex-col leading-none">
               <span className="text-xs text-gray-900 mb-1 overflow-ellipsis">FOLLOW ON</span>
@@ -57,6 +59,7 @@ const Hero = ({ heroData }) => {
               wrapper="w-6 h-6"
               height={50}
               width={50}
+              priority
             />
             <span className="ml-2 flex items-start flex-col leading-none">
               <span className="text-xs text-gray-900 mb-1">CONNECT ON</span>

@@ -16,6 +16,7 @@ const Navi = () => {
               height={40}
               alt="an animated photo of Neil"
               wrapper="w-10 h-10 group-hover:opacity-80"
+              priority
             />
 
             <span className="ml-3 text-xl font-bold group-hover:text-gray-500">neilskaria.com</span>

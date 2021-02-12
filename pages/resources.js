@@ -24,7 +24,7 @@ const Resources = ({ resources }) => {
               A list of articles and blog posts that I reference back to
             </div>
           </div>
-          {resources.map((resource) => {
+          {resources.map((resource, index) => {
             if (resource.title && resource.description && resource.images[0]) {
               return (
                 <ResourceCard
@@ -33,6 +33,7 @@ const Resources = ({ resources }) => {
                   description={resource.description}
                   link={resource.url}
                   image={resource.images[0]}
+                  priority={index < 5 ? true : false}
                 />
               );
             }

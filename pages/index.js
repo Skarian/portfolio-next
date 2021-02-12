@@ -42,6 +42,7 @@ const Home = ({ heroData, resources, blogPosts }) => {
                 date={date}
                 body={body}
                 slug={slug}
+                priority={true}
               />
             );
           })}

@@ -67,6 +67,7 @@ const Blog = ({ blogPost, mdx, frontMatter }) => {
               height={frontMatter.height}
               alt={frontMatter.alt}
               wrapper="max-w-2xl"
+              priority
             />
           </div>
           <div className="flex justify-center">
