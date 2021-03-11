@@ -5,6 +5,7 @@ import { NotionAPI } from 'notion-client';
 import { NextSeo } from 'next-seo';
 
 const Resources = ({ resources }) => {
+  console.log(resources);
   return (
     <>
       <NextSeo
@@ -25,7 +26,7 @@ const Resources = ({ resources }) => {
             </div>
           </div>
           {resources.map((resource, index) => {
-            if (resource.title && resource.description && resource.images[0]) {
+            if (resource !== null && resource.title && resource.description && resource.images[0]) {
               return (
                 <ResourceCard
                   key={resource.url}
