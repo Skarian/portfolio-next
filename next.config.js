@@ -4,6 +4,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withBundleAnalyzer({
+  exportTrailingSlash: true,
+  exportPathMap: function () {
+    return {
+      '/': { page: '/' },
+    };
+  },
   images: {
     domains: ['res.cloudinary.com'],
   },
